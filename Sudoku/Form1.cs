@@ -116,6 +116,7 @@ namespace Sudoku
             GenerateMap();
             button_check.Enabled = true;
             Solve.Enabled = true;
+            gtri = 0;
             value_timer = 300;
             label1.Text = "5:00";
             timer1.Start();
@@ -353,18 +354,7 @@ namespace Sudoku
             {
                 timer1.Stop();
                 MessageBox.Show("Hết giờ !!!", "Thông báo", MessageBoxButtons.OK);
-                for (int i = 0; i < n*n; i++)
-                {
-                    for (int j = 0; j < n*n; j++)
-                    {
-                        btns[i,j].Enabled = false;
-                        if (btns[i,j].Text == hide[i,j].ToString())
-                            btns[i,j].BackColor = Color.LightGray;
-                        else
-                            btns[i, j].BackColor = Color.White;
-                    }
-                }
-                
+                button_Solve(sender,e);                
             }
             
         }
